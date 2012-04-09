@@ -1,11 +1,11 @@
-** JUST GETTING STARTED. WIP. NOT COMPLETE CODE. README DRIVEN DEVELOPMENT.**
+**JUST GETTING STARTED. WIP. NOT COMPLETE CODE. README DRIVEN DEVELOPMENT**
 
 # Frontin
 
 Give your frontend code some respect in Rails. Don't even front.
 
 Frontin adds middleware to allow you to develop your frontend code in `Rails/root/frontend` and serve it in development mode.
-Frontin takes any request for `assets/**js, assets/**css` or `app/**js` and maps those requests to `Rails/root/frontend`.
+Frontin takes any request for `assets/**js, assets/**css` or `app/**js` and maps those requests to `Rails/root/frontend` in development mode.
 It also provides generators to easily setup the backbone-boilerplate using grunt so that you can easily build to `public/assets/` for production. Keeping your frontend source out of `public/`.
 
 **Frontin is NOT designed to work with the asset pipeline, it actually disables it completely.**
