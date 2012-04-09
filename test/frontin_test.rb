@@ -1,4 +1,4 @@
 require "test_helper"
 
-class FrontinTest < ActiveSupport::TestCase
+class FrontinTest < Test::Unit::TestCase
 end
