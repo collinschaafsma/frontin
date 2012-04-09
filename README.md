@@ -1,3 +1,5 @@
+** JUST GETTING STARTED. WIP. NOT COMPLETE CODE. README DRIVEN DEVELOPMENT.**
+
 # Frontin
 
 Give your frontend code some respect in Rails. Don't even front.
