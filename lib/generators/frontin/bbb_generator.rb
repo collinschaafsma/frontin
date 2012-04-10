@@ -25,7 +25,7 @@ module Frontin
 
       def bbb_init
         say("Invoking: bbb init")
-        bbb_namespace = ask("Project namespace:")
+        bbb_namespace = ask("Backbone project namespace?")
 
         STDOUT.sync     = true
         STDERR.sync     = true
@@ -35,6 +35,9 @@ module Frontin
           output.expect(/Project namespace/) { input.puts bbb_namespace }
           output.expect(/Do you need to make any changes to the above before continuing/) { input.puts "N" }
         end
+
+        # We replace this with a grunt config setup for rails directories
+        remove_file('frontend/grunt.js')
       end
 
       def install_grunt_config
