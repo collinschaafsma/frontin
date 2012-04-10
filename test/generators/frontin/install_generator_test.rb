@@ -3,6 +3,8 @@ require 'rails/generators/test_case'
 require 'generators/frontin/install_generator'
 
 class InstallGeneratorTest < Rails::Generators::TestCase
+  include Frontin::Util
+
   tests Frontin::Generators::InstallGenerator
   destination File.expand_path("../tmp", File.dirname(__FILE__))
   setup do
@@ -21,9 +23,13 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
   test 'Install Generator' do
     run_generator
-    assert_directory "frontend"
+    directory_trees.each do |path|
+      assert_directory path
+    end
+
+    assert_file 'frontend/grunt.js'
 
     contents = File.read(development_env)
-    assert_match(/config.middleware.use\(Frontin::Middleware, :paths => \['\/assets', '\/app'\]\)/m, contents)
+    assert_match(/config.middleware.use\(Frontin::Middleware, :paths => \['\/assets', '\/app'\], :root => 'frontend'\)/m, contents)
   end
 end
