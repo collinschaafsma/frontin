@@ -1,11 +1,11 @@
 require 'test_helper'
 require 'rails/generators/test_case'
-require 'generators/frontin/install_generator'
+require 'generators/frontin/bbb_generator'
 
-class InstallGeneratorTest < Rails::Generators::TestCase
+class BbbGeneratorTest < Rails::Generators::TestCase
   include Frontin::Util
 
-  tests Frontin::Generators::InstallGenerator
+  tests Frontin::Generators::BbbGenerator
   destination File.expand_path("../tmp", File.dirname(__FILE__))
 
   setup do
@@ -22,15 +22,20 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     @development_env ||= File.expand_path("config/environments/development.rb", destination_root)
   end
 
-  def test_install_generator
+  def test_bbb_generator
     run_generator
     directory_trees.each do |path|
       assert_directory path
     end
 
-    assert_file 'frontend/grunt.js'
+    %w(frontend/grunt.js frontend/app/myapp.js frontend/app/main.js
+       frontend/app/config.js frontend/app/modules/example.js
+       frontend/app/templates/example.html).each do |file|
+      assert_file file
+    end
 
     contents = File.read(development_env)
     assert_match(/config.middleware.use\(Frontin::Middleware, :paths => \['\/assets', '\/app'\], :root => 'frontend'\)/m, contents)
   end
 end
+

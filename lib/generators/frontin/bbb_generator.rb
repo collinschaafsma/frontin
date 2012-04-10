@@ -25,12 +25,14 @@ module Frontin
 
       def bbb_init
         say("Invoking: bbb init")
-        bbb_namespace = ask("Backbone project namespace?")
+        # Make sure this can run in test mode
+        bbb_namespace = Rails.env.test? ? 'myapp' : ask("Backbone project namespace?")
+        cmd = Rails.env.test? ? "cd test/generators/tmp/frontend; bbb init" : 'cd frontend; bbb init'
 
         STDOUT.sync     = true
         STDERR.sync     = true
         $expect_verbose = false
-        PTY.spawn('cd frontend; bbb init') do |output,input,pid|
+        PTY.spawn(cmd) do |output,input,pid|
           input.sync = true
           output.expect(/Project namespace/) { input.puts bbb_namespace }
           output.expect(/Do you need to make any changes to the above before continuing/) { input.puts "N" }
