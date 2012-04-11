@@ -55,6 +55,9 @@ the node npm package bbb. If your looking to build your frontend using Backbone 
 
     rails g frontin:bbb
 
+To get started with the bbb grunt plugin checkout the docs. https://github.com/backbone-boilerplate/grunt-bbb
+Be sure you run your `bbb` commands in the root of the `frontend/` directory.
+
 ## Disabling the asset pipeline
 
 It's highly recommended that if you use frontin to disable the asset pipeline to avoid
