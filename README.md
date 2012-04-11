@@ -26,7 +26,7 @@ use the Rails framework for what it's best at.
 
 Add this line to your application's Gemfile:
 
-    gem 'frontin', :group => :development
+    gem 'frontin'
 
 And then execute:
 
