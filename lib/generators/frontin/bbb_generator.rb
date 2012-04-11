@@ -38,9 +38,6 @@ module Frontin
             output.expect(/Project namespace/) { input.puts bbb_namespace }
             output.expect(/Do you need to make any changes to the above before continuing/) { input.puts "N" }
           end
-
-          # We replace this with a grunt config setup for rails directories
-          remove_file('frontend/grunt.js')
         end
       end
 

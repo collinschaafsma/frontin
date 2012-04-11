@@ -25,6 +25,11 @@ class BbbGeneratorTest < Rails::Generators::TestCase
   def test_bbb_generator
     run_generator
 
+    # This feels bad man, but we need to wait for the bbb init to finsh in the other
+    # process before we start looking for stuff it generated.  At this point we don't
+    # mock this out because we want to know if things thange in bbb init.
+    sleep 1
+
     directory_trees.each do |path|
       assert_directory path
     end
