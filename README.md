@@ -11,6 +11,8 @@ If that sounds pretty awesome to you, and you don't want your frontend code to g
 
 Learn more about grunt https://github.com/cowboy/grunt, and the backbone-boilerplate https://github.com/backbone-boilerplate/grunt-bbb
 
+[![Build Status](https://secure.travis-ci.org/collinschaafsma/frontin.png)](http://travis-ci.org/collinschaafsma/frontin)
+
 ## Why
 
 Frontin was developed out of frustration with the asset pipeline. Instead it uses grunt to compile frontend code to the `public/` directory where a web server like
