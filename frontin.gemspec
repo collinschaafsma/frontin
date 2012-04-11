@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["collin@quickleft.com"]
   gem.description   = %q{Give your frontend code some respect in Rails! Don't even front.}
   gem.summary       = %q{Frontin adds middleware to allow you to develop your frontend code in Rails/root/frontend. It also provides generators to easily setup the backbone boilerplate using Grunt so that you can easily build to public/ for production.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/collinschaafsma/frontin"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "frontin"
   gem.require_paths = ["lib"]
   gem.version       = Frontin::VERSION
+  gem.rubyforge_project = "frontin"
 
-  gem.add_dependency("railties", "~> 3.1")
+  gem.add_dependency("rails", "~> 3.2.0")
 end

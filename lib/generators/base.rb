@@ -38,10 +38,10 @@ module Frontin
       end
 
       private
-      def install_grunt_config
-        say("Installing sensible grunt configuration for your environment in frontend/ directory.")
-        get("https://raw.github.com/gist/2348189/3aa8f76e2f2d2aa47a803314b14c99396baf0321/rails-grunt.js", "frontend/grunt.js")
-      end
+        def install_grunt_config
+          say("Installing sensible grunt configuration for your environment in frontend/ directory.")
+          get("https://raw.github.com/gist/2348189/3aa8f76e2f2d2aa47a803314b14c99396baf0321/rails-grunt.js", "frontend/grunt.js")
+        end
     end
   end
 end

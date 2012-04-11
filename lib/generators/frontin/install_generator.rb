@@ -10,7 +10,6 @@ module Frontin
       def install_grunt_config
         super
       end
-
     end
   end
 end

@@ -1,5 +1,3 @@
-**JUST GETTING STARTED. WIP. NOT COMPLETE CODE. README DRIVEN DEVELOPMENT**
-
 # Frontin
 
 Give your frontend code some respect in Rails. Don't even front.
@@ -8,7 +6,7 @@ Frontin adds middleware to allow you to develop your frontend code in `Rails/roo
 Frontin takes any request for `assets/**js, assets/**css` or `app/**js` and maps those requests to `Rails/root/frontend` in development mode.
 It also provides generators to easily setup the backbone-boilerplate using grunt so that you can easily build to `public/assets/` for production. Keeping your frontend source out of `public/`.
 
-**Frontin is NOT designed to work with the asset pipeline, it actually disables it completely.**
+**Frontin is NOT designed to work with the asset pipeline.**
 If that sounds pretty awesome to you, and you don't want your frontend code to get all mixed up in the Rails framework then frontin might be the kitties pj's for you.
 
 Learn more about grunt https://github.com/cowboy/grunt, and the backbone-boilerplate https://github.com/backbone-boilerplate/grunt-bbb
@@ -41,15 +39,35 @@ Frontin provides several generators to make life easy.
     rails g frontin:install
 
 This adds the `frontend/` directory to the root of your Rails project where you can start writing your frontend code.
-**It will completly disable the asset pipeline in Rails!**
 In addition the node npm package grunt will be installed for building your assets with a sensible config.
-To view the details of this generator you can view the source here.
 
 Frontin also makes it easy to install the backbone-boilerplate into your `frontend` directory using
 the node npm package bbb. If your looking to build your frontend using Backbone we highly suggest you give the backbone-boilerplate a spin.
-To view the details of this generator you can view the source here.
 
     rails g frontin:bbb
+
+## Disabling the asset pipeline
+
+It's highly recommended that if you use frontin to disable the asset pipeline to avoid
+any conflicts. Besides, at this point you don't need it anymore.
+
+### Greenfield project
+
+    rails new my_project -S
+
+### Existing project
+
+    config/application.rb
+
+    # comment out
+    require "sprockets/railtie"
+
+    # disable the asset pipeline
+    config.assets.enabled = false
+
+    # optionally disable the generators
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
 
 ## Example Rails app
 

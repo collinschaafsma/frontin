@@ -24,6 +24,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
   def test_install_generator
     run_generator
+
     directory_trees.each do |path|
       assert_directory path
     end

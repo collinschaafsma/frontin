@@ -24,22 +24,24 @@ module Frontin
       end
 
       def bbb_init
-        say("Invoking: bbb init")
-        # Make sure this can run in test mode
-        bbb_namespace = Rails.env.test? ? 'myapp' : ask("Backbone project namespace?")
-        cmd = Rails.env.test? ? "cd test/generators/tmp/frontend; bbb init" : 'cd frontend; bbb init'
+        if binary_installed?('bbb')
+          say("Invoking: bbb init")
+          # Make sure this can run in test mode
+          bbb_namespace = Rails.env.test? ? 'myapp' : ask("Backbone project namespace?")
+          cmd = Rails.env.test? ? "cd test/generators/tmp/frontend; bbb init" : 'cd frontend; bbb init'
 
-        STDOUT.sync     = true
-        STDERR.sync     = true
-        $expect_verbose = false
-        PTY.spawn(cmd) do |output,input,pid|
-          input.sync = true
-          output.expect(/Project namespace/) { input.puts bbb_namespace }
-          output.expect(/Do you need to make any changes to the above before continuing/) { input.puts "N" }
+          STDOUT.sync     = true
+          STDERR.sync     = true
+          $expect_verbose = false
+          PTY.spawn(cmd) do |output,input,pid|
+            input.sync = true
+            output.expect(/Project namespace/) { input.puts bbb_namespace }
+            output.expect(/Do you need to make any changes to the above before continuing/) { input.puts "N" }
+          end
+
+          # We replace this with a grunt config setup for rails directories
+          remove_file('frontend/grunt.js')
         end
-
-        # We replace this with a grunt config setup for rails directories
-        remove_file('frontend/grunt.js')
       end
 
       def install_grunt_config
