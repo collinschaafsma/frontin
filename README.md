@@ -13,6 +13,8 @@ Learn more about grunt https://github.com/cowboy/grunt, and the backbone-boilerp
 
 [![Build Status](https://secure.travis-ci.org/collinschaafsma/frontin.png)](http://travis-ci.org/collinschaafsma/frontin)
 
+Testing against: node 0.6, 0.7 / Ruby MRI 1.9.2, 1.9.3
+
 ## Why
 
 Frontin was developed out of frustration with the asset pipeline. Instead it uses grunt to compile frontend code to the `public/` directory where a web server like
@@ -33,6 +35,11 @@ And then execute:
 Or install it yourself as:
 
     $ gem install frontin
+
+## Dependencies
+
+* Ruby ~> 1.9.2
+* Node ~> 0.6
 
 ## Usage
 
