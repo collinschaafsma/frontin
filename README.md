@@ -49,19 +49,22 @@ Frontin provides several generators to make life easy.
 
 This adds the `frontend/` directory to the root of your Rails project where you can start writing your frontend code.
 In addition the node npm package grunt will be installed for building your assets with a sensible config.
+To get started with `grunt` checkout the docs. https://github.com/cowboy/grunt
+Note: If grunt is not installed it will install grunt globally.
 
 Frontin also makes it easy to install the backbone-boilerplate into your `frontend` directory using
-the node npm package bbb. If your looking to build your frontend using Backbone we highly suggest you give the backbone-boilerplate a spin.
+the node npm package `bbb`. If your looking to build your frontend on Backbone we highly suggest you give the backbone-boilerplate a spin.
 
     rails g frontin:bbb
 
 To get started with the bbb grunt plugin checkout the docs. https://github.com/backbone-boilerplate/grunt-bbb
 Be sure you run your `bbb` commands in the root of the `frontend/` directory.
+Note: If bbb is not installed it will install bbb globally.
 
 ## Disabling the asset pipeline
 
 It's highly recommended that if you use frontin to disable the asset pipeline to avoid
-any conflicts. Besides, at this point you don't need it anymore.
+any conflicts. Besides, at this point you don't need it anymore, grunt or the bbb grunt plugin will take it from here.
 
 ### Greenfield project
 
